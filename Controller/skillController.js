@@ -1,0 +1,38 @@
+
+const pool=require('../Conexion/ConexionBD');
+module.exports={
+    mntSkill(req,res){
+        const sql="call usp_mntSkill(?,?,?,?,?,?,?)";
+        let objSkill={
+            opcion:req.body.opcion,
+            idSkill:req.body.idSkill,
+            nombre:req.body.nombre,
+            imgSkill:req.body.imgSkill,
+            colorImg:req.body.colorImg,
+            tipoSkill:req.body.tipoSkill,
+            estado:req.body.estado
+        }
+        pool.query(sql,[objSkill.opcion,objSkill.idSkill,objSkill.nombre,objSkill.imgSkill,objSkill.colorImg,objSkill.tipoSkill,objSkill.estado],(error)=>{
+            if(error) throw error;
+            else res.send('ok');
+            res.end();
+        })
+    },
+    listarSkill(req,res){
+        const sql="call usp_mntSkill(?,?,?,?,?,?,?)";
+        console.log(req);
+        let objSkill={
+            opcion:req.params.opcion
+        }
+        console.log(objSkill);
+        pool.query(sql,[objSkill.opcion,0,'','','',0,0],(error,resp)=>{
+            if(error) throw error;
+            if(resp.length>0){
+                res.send(resp);
+              }else{
+                res.send('not result');
+              } 
+            res.end();
+        })
+    }
+}
