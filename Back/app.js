@@ -28,11 +28,13 @@ let maestro=require('../Ruta/routeMaestro');
 let skill=require('../Ruta/routeSkill');
 let work=require('../Ruta/routeWork');
 let foto=require('../Ruta/routeFoto');
+let about=require('../Ruta/routeAbout');
 app.use(work);
 app.use(menu);
 app.use(maestro);
 app.use(skill);
 app.use(foto);
+app.use(about);
 
 //creación del server
 app.listen(server.servidor,function(error,res){
