@@ -1,4 +1,3 @@
-
 var express=require('express');
 var router=express.Router();
 var skillController=require('../Controller/skillController');
@@ -13,6 +12,5 @@ router.put('/api/removeSkill',skillController.mntSkill);
 router.put('/api/activateSkill',skillController.mntSkill);
 //listar
 router.get('/api/listarSkill/:opcion/:estado',skillController.listarSkill);
-
 
 module.exports=router;

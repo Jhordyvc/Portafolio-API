@@ -1,4 +1,3 @@
-
 const pool=require('../Conexion/ConexionBD');
 module.exports={
     mntSkill(req,res){

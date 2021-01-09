@@ -1,4 +1,3 @@
-
 var pool=require('../Conexion/ConexionBD');
 module.exports={
 

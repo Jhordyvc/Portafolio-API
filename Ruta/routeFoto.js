@@ -5,7 +5,6 @@ const routeImagenServer=require('../Conexion/configGeneral');
 const uploadFoto=require('../Controller/subirFotoController');
 var fs = require('fs');
 
-
 storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, routeImagenServer.imagen) // Agregamos el directorio donde se guardarán los archivos.

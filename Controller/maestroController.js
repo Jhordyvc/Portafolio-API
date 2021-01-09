@@ -1,5 +1,4 @@
 const pool = require("../Conexion/ConexionBD");
-
 module.exports={
 
     listarTablaMaestro(req,res){
