@@ -22,10 +22,11 @@ module.exports={
         const sql="call usp_mntSkill(?,?,?,?,?,?,?)";
         console.log(req);
         let objSkill={
-            opcion:req.params.opcion
+            opcion:req.params.opcion,
+            estado:req.params.estado
         }
         console.log(objSkill);
-        pool.query(sql,[objSkill.opcion,0,'','','',0,0],(error,resp)=>{
+        pool.query(sql,[objSkill.opcion,0,'','','',0,objSkill.estado],(error,resp)=>{
             if(error) throw error;
             if(resp.length>0){
                 res.send(resp);
