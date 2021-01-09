@@ -22,7 +22,6 @@ module.exports={
         let objAbout={
             opcion:req.params.opcion
         }
-        console.log(objSkill);
         pool.query(sql,[objAbout.opcion,0,'','',0],(error,resp)=>{
             if(error) throw error;
             if(resp.length>0){

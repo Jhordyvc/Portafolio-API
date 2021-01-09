@@ -3,6 +3,8 @@ var router=express.Router();
 const multer = require('multer');
 const routeImagenServer=require('../Conexion/configGeneral');   
 const uploadFoto=require('../Controller/subirFotoController');
+var fs = require('fs');
+
 
 storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,7 +19,11 @@ storage = multer.diskStorage({
 //subir foto
 router.post('/api/subirFoto',upload.single('archivo'),uploadFoto.subirFoto);
 //obtener foto
-router.get('/api/verFotos',uploadFoto.obtenerFotos);
-
+router.get('/api/verFotos',function(req, res, next) {
+    fs.readdir('../archivo/foto', function(err, files) {
+      console.log(files);
+       res.send(files);        
+    });
+});
 module.exports=router;
 

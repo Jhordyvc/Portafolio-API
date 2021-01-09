@@ -7,7 +7,7 @@ var aboutController=require('../Controller/AboutController');
 router.post('/api/addAbout',aboutController.mntAbout);
 //update
 router.put('/api/updateAbout',aboutController.mntAbout);
-//update
+//delete
 router.put('/api/removeAbout',aboutController.mntAbout);
 //activate
 router.put('/api/activateAbout',aboutController.mntAbout);

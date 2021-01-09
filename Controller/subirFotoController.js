@@ -56,7 +56,7 @@ module.exports={
   },
   //obtener foto
   obtenerFotos(req, res, next) {
-    fs.readdir(routeImagenServer.imagenGet, function(err, files) {
+    fs.readdir('../archivo/foto', function(err, files) {
       console.log(files);
       res.send(files);        
     });
