@@ -23,22 +23,29 @@ app.use('/sources', express.static(staticRoute))
 let server=require('../Conexion/configGeneral');
 
 //llamado ruta
-let menu=require('../Ruta/routeMenu');
-let maestro=require('../Ruta/routeMaestro');
-let skill=require('../Ruta/routeSkill');
-let work=require('../Ruta/routeWork');
-let foto=require('../Ruta/routeFoto');
-let about=require('../Ruta/routeAbout');
+const menu=require('../Ruta/routeMenu');
+const maestro=require('../Ruta/routeMaestro');
+const skill=require('../Ruta/routeSkill');
+const work=require('../Ruta/routeWork');
+const foto=require('../Ruta/routeFoto');
+const about=require('../Ruta/routeAbout');
+const jobs=require('../Ruta/routeJobs');
+const principal=require('../Ruta/routePrincipal');
+const redes=require('../Ruta/routeRedes');
+const email=require('../Ruta/routeEmail')
 app.use(work);
 app.use(menu);
 app.use(maestro);
 app.use(skill);
 app.use(foto);
 app.use(about);
+app.use(jobs);
+app.use(principal);
+app.use(redes);
+app.use(email);
 
 //creación del server
 app.listen(server.servidor,function(error,res){
 	if(error) throw error;
-	else console.log("servidor corriendo perfectamente ${server.servidor}");
-	console.log(server.servidor);
+	else console.log("servidor corriendo perfectamente");
 });
