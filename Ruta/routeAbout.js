@@ -11,7 +11,6 @@ router.put('/api/removeAbout',aboutController.mntAbout);
 //activate
 router.put('/api/activateAbout',aboutController.mntAbout);
 //listar
-router.get('/api/listarAbout/:opcion',aboutController.listarAbout);
-
+router.get('/api/listarAbout/:opcion/:estado',aboutController.listarAbout);
 
 module.exports=router;

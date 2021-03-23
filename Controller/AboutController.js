@@ -17,11 +17,11 @@ module.exports={
     },
     listarAbout(req,res){
         const sql="call usp_mntAbout(?,?,?,?,?)";
-        console.log(req);
         let objAbout={
-            opcion:req.params.opcion
+            opcion:req.params.opcion,
+            estado:req.params.estado
         }
-        pool.query(sql,[objAbout.opcion,0,'','',0],(error,resp)=>{
+        pool.query(sql,[objAbout.opcion,0,'','',objAbout.estado],(error,resp)=>{
             if(error) throw error;
             if(resp.length>0){
                 res.send(resp);
