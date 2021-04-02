@@ -1,6 +1,7 @@
 const pool=require('../Conexion/ConexionBD');
 module.exports={
     mntSkill(req,res){
+       try{
         const sql="call usp_mntSkill(?,?,?,?,?,?,?)";
         let objSkill={
             opcion:req.body.opcion,
@@ -16,23 +17,30 @@ module.exports={
             else res.send('ok');
             res.end();
         })
+       }catch(error){
+           res.send(error);
+           res.end();
+       }
     },
     listarSkill(req,res){
-        const sql="call usp_mntSkill(?,?,?,?,?,?,?)";
-        console.log(req);
-        let objSkill={
-            opcion:req.params.opcion,
-            estado:req.params.estado
-        }
-        console.log(objSkill);
-        pool.query(sql,[objSkill.opcion,0,'','','',0,objSkill.estado],(error,resp)=>{
-            if(error) throw error;
-            if(resp.length>0){
-                res.send(resp);
-              }else{
-                res.send('not result');
-              } 
+        try{
+            const sql="call usp_mntSkill(?,?,?,?,?,?,?)";
+            let objSkill={
+                opcion:req.params.opcion,
+                estado:req.params.estado
+            }
+            pool.query(sql,[objSkill.opcion,0,'','','',0,objSkill.estado],(error,resp)=>{
+                if(error) throw error;
+                if(resp.length>0){
+                    res.send(resp);
+                }else{
+                    res.send('not result');
+                } 
+                res.end();
+            })
+        }catch(error){
+            res.send(error)
             res.end();
-        })
+        }
     }
 }

@@ -11,5 +11,5 @@ router.put('/api/updateMaestro',maestroController.mntMaestro);
 //remove Maestro
 router.put('/api/removeMaestro',maestroController.mntMaestro);
 //activar Maestro
-router.put('/api/activa teMaestro',maestroController.mntMaestro);
+router.put('/api/activateMaestro',maestroController.mntMaestro);
 module.exports=router;
