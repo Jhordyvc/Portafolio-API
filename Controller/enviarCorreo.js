@@ -35,7 +35,7 @@ module.exports={
               if (error) {
                 throw error;
               } else {
-                res.send('Email sent: ' + info.response);
+                res.send('ok'); 
               }
               res.send();
           });

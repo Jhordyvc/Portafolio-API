@@ -32,7 +32,9 @@ const about=require('../Ruta/routeAbout');
 const jobs=require('../Ruta/routeJobs');
 const principal=require('../Ruta/routePrincipal');
 const redes=require('../Ruta/routeRedes');
-const email=require('../Ruta/routeEmail')
+const email=require('../Ruta/routeEmail');
+const descripcion=require('../Ruta/routeDescripcion');
+const usuario=require('../Ruta/routeUsuario');
 app.use(work);
 app.use(menu);
 app.use(maestro);
@@ -43,6 +45,8 @@ app.use(jobs);
 app.use(principal);
 app.use(redes);
 app.use(email);
+app.use(descripcion);
+app.use(usuario);
 
 //creación del server
 app.listen(server.servidor,function(error,res){
